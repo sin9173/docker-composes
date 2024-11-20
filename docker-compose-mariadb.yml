@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  db:
+    image: mariadb
+#    container_name: mariadb-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MYSQL_USER: ${MARIADB_USER}
+      MYSQL_PASSWORD: ${MARIADB_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - /home/sin9173/docker-data/mysql:/var/lib/mysql
+    env_file:
+      - mariadb.env
